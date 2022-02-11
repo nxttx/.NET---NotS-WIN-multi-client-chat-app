@@ -1,0 +1,31 @@
+C:\Users\Martijn Driessen\source\repos\NOTS_Uitwerking_opdracht_1\01_ClientServerChat\bin\Debug\01_ClientServerChat.exe.config
+C:\Users\Martijn Driessen\source\repos\NOTS_Uitwerking_opdracht_1\01_ClientServerChat\bin\Debug\01_ClientServerChat.exe
+C:\Users\Martijn Driessen\source\repos\NOTS_Uitwerking_opdracht_1\01_ClientServerChat\bin\Debug\01_ClientServerChat.pdb
+C:\Users\Martijn Driessen\source\repos\NOTS_Uitwerking_opdracht_1\01_ClientServerChat\obj\Debug\_01_ClientServerChat.Form1.resources
+C:\Users\Martijn Driessen\source\repos\NOTS_Uitwerking_opdracht_1\01_ClientServerChat\obj\Debug\_01_ClientServerChat.Properties.Resources.resources
+C:\Users\Martijn Driessen\source\repos\NOTS_Uitwerking_opdracht_1\01_ClientServerChat\obj\Debug\01_ClientServerChat.csproj.GenerateResource.Cache
+C:\Users\Martijn Driessen\source\repos\NOTS_Uitwerking_opdracht_1\01_ClientServerChat\obj\Debug\01_ClientServerChat.csproj.CoreCompileInputs.cache
+C:\Users\Martijn Driessen\source\repos\NOTS_Uitwerking_opdracht_1\01_ClientServerChat\obj\Debug\01_ClientServerChat.exe
+C:\Users\Martijn Driessen\source\repos\NOTS_Uitwerking_opdracht_1\01_ClientServerChat\obj\Debug\01_ClientServerChat.pdb
+C:\Users\Rober\Documents\1.0 ICA\Leerjaar 3\S2\WIN-Web_Infrastructures\Week 1 - les 2\NOTS_Uitwerking_opdracht_1\01_ClientServerChat\bin\Debug\01_ClientServerChat.exe.config
+C:\Users\Rober\Documents\1.0 ICA\Leerjaar 3\S2\WIN-Web_Infrastructures\Week 1 - les 2\NOTS_Uitwerking_opdracht_1\01_ClientServerChat\bin\Debug\01_ClientServerChat.exe
+C:\Users\Rober\Documents\1.0 ICA\Leerjaar 3\S2\WIN-Web_Infrastructures\Week 1 - les 2\NOTS_Uitwerking_opdracht_1\01_ClientServerChat\bin\Debug\01_ClientServerChat.pdb
+C:\Users\Rober\Documents\1.0 ICA\Leerjaar 3\S2\WIN-Web_Infrastructures\Week 1 - les 2\NOTS_Uitwerking_opdracht_1\01_ClientServerChat\obj\Debug\01_ClientServerChat.csproj.AssemblyReference.cache
+C:\Users\Rober\Documents\1.0 ICA\Leerjaar 3\S2\WIN-Web_Infrastructures\Week 1 - les 2\NOTS_Uitwerking_opdracht_1\01_ClientServerChat\obj\Debug\01_ClientServerChat.csproj.SuggestedBindingRedirects.cache
+C:\Users\Rober\Documents\1.0 ICA\Leerjaar 3\S2\WIN-Web_Infrastructures\Week 1 - les 2\NOTS_Uitwerking_opdracht_1\01_ClientServerChat\obj\Debug\_01_ClientServerChat.Form1.resources
+C:\Users\Rober\Documents\1.0 ICA\Leerjaar 3\S2\WIN-Web_Infrastructures\Week 1 - les 2\NOTS_Uitwerking_opdracht_1\01_ClientServerChat\obj\Debug\_01_ClientServerChat.Properties.Resources.resources
+C:\Users\Rober\Documents\1.0 ICA\Leerjaar 3\S2\WIN-Web_Infrastructures\Week 1 - les 2\NOTS_Uitwerking_opdracht_1\01_ClientServerChat\obj\Debug\01_ClientServerChat.csproj.GenerateResource.cache
+C:\Users\Rober\Documents\1.0 ICA\Leerjaar 3\S2\WIN-Web_Infrastructures\Week 1 - les 2\NOTS_Uitwerking_opdracht_1\01_ClientServerChat\obj\Debug\01_ClientServerChat.csproj.CoreCompileInputs.cache
+C:\Users\Rober\Documents\1.0 ICA\Leerjaar 3\S2\WIN-Web_Infrastructures\Week 1 - les 2\NOTS_Uitwerking_opdracht_1\01_ClientServerChat\obj\Debug\01_ClientServerChat.exe
+C:\Users\Rober\Documents\1.0 ICA\Leerjaar 3\S2\WIN-Web_Infrastructures\Week 1 - les 2\NOTS_Uitwerking_opdracht_1\01_ClientServerChat\obj\Debug\01_ClientServerChat.pdb
+C:\Users\Rober\Documents\1.0 ICA\Leerjaar 3\S2\WIN-Web_Infrastructures\Beroepsproduct 1\NOTS_Uitwerking_opdracht_1\01_ClientServerChat\bin\Debug\01_ClientServerChat.exe.config
+C:\Users\Rober\Documents\1.0 ICA\Leerjaar 3\S2\WIN-Web_Infrastructures\Beroepsproduct 1\NOTS_Uitwerking_opdracht_1\01_ClientServerChat\bin\Debug\01_ClientServerChat.exe
+C:\Users\Rober\Documents\1.0 ICA\Leerjaar 3\S2\WIN-Web_Infrastructures\Beroepsproduct 1\NOTS_Uitwerking_opdracht_1\01_ClientServerChat\bin\Debug\01_ClientServerChat.pdb
+C:\Users\Rober\Documents\1.0 ICA\Leerjaar 3\S2\WIN-Web_Infrastructures\Beroepsproduct 1\NOTS_Uitwerking_opdracht_1\01_ClientServerChat\obj\Debug\01_ClientServerChat.csproj.AssemblyReference.cache
+C:\Users\Rober\Documents\1.0 ICA\Leerjaar 3\S2\WIN-Web_Infrastructures\Beroepsproduct 1\NOTS_Uitwerking_opdracht_1\01_ClientServerChat\obj\Debug\01_ClientServerChat.csproj.SuggestedBindingRedirects.cache
+C:\Users\Rober\Documents\1.0 ICA\Leerjaar 3\S2\WIN-Web_Infrastructures\Beroepsproduct 1\NOTS_Uitwerking_opdracht_1\01_ClientServerChat\obj\Debug\_01_ClientServerChat.Form1.resources
+C:\Users\Rober\Documents\1.0 ICA\Leerjaar 3\S2\WIN-Web_Infrastructures\Beroepsproduct 1\NOTS_Uitwerking_opdracht_1\01_ClientServerChat\obj\Debug\_01_ClientServerChat.Properties.Resources.resources
+C:\Users\Rober\Documents\1.0 ICA\Leerjaar 3\S2\WIN-Web_Infrastructures\Beroepsproduct 1\NOTS_Uitwerking_opdracht_1\01_ClientServerChat\obj\Debug\01_ClientServerChat.csproj.GenerateResource.cache
+C:\Users\Rober\Documents\1.0 ICA\Leerjaar 3\S2\WIN-Web_Infrastructures\Beroepsproduct 1\NOTS_Uitwerking_opdracht_1\01_ClientServerChat\obj\Debug\01_ClientServerChat.csproj.CoreCompileInputs.cache
+C:\Users\Rober\Documents\1.0 ICA\Leerjaar 3\S2\WIN-Web_Infrastructures\Beroepsproduct 1\NOTS_Uitwerking_opdracht_1\01_ClientServerChat\obj\Debug\01_ClientServerChat.exe
+C:\Users\Rober\Documents\1.0 ICA\Leerjaar 3\S2\WIN-Web_Infrastructures\Beroepsproduct 1\NOTS_Uitwerking_opdracht_1\01_ClientServerChat\obj\Debug\01_ClientServerChat.pdb
