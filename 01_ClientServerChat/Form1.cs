@@ -75,13 +75,13 @@ namespace _01_ClientServerChat
         // Stap 7:
         private void ReceiveData()
         {
+            txtBufferSize.Enabled = false;
             int bufferSize;
-            // Stap 11:
             int ignoreMe;
             bool succes = int.TryParse(txtBufferSize.Text, out ignoreMe);
             if (succes)
             {
-                bufferSize = 2;
+                bufferSize = int.Parse(txtBufferSize.Text);
             }
             else 
             {
@@ -93,8 +93,6 @@ namespace _01_ClientServerChat
             byte[] buffer = new byte[bufferSize];
 
             networkStream = tcpClient.GetStream();
-            // conform opdracht maar zonder hergebruik:
-            //listChats.Invoke(new UpdateDisplayDelegate(UpdateDisplay), new object[] { "Connected!" });     
             AddMessage("Connected!");
 
             while (true)
@@ -117,10 +115,11 @@ namespace _01_ClientServerChat
             tcpClient.Close();
 
             AddMessage("Connection closed");
+            txtBufferSize.Enabled = true;
         }
 
         // Stap 8:
-        private void btnConnectWithServer_Click(object sender, EventArgs e)
+        private void btnConnectWithServer_Click_1(object sender, EventArgs e)
         {
             AddMessage("Connecting...");
             try

@@ -45,7 +45,8 @@
             // 
             // btnListen
             // 
-            this.btnListen.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnListen.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnListen.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.btnListen.Location = new System.Drawing.Point(775, 30);
             this.btnListen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnListen.Name = "btnListen";
@@ -57,18 +58,20 @@
             // 
             // listChats
             // 
-            this.listChats.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listChats.Anchor = ((System.Windows.Forms.AnchorStyles) ((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
+            this.listChats.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.listChats.FormattingEnabled = true;
             this.listChats.ItemHeight = 20;
             this.listChats.Location = new System.Drawing.Point(47, 30);
             this.listChats.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listChats.Name = "listChats";
-            this.listChats.Size = new System.Drawing.Size(691, 484);
+            this.listChats.Size = new System.Drawing.Size(691, 524);
             this.listChats.TabIndex = 1;
             // 
             // txtMessageToBeSend
             // 
-            this.txtMessageToBeSend.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMessageToBeSend.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtMessageToBeSend.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.txtMessageToBeSend.Location = new System.Drawing.Point(47, 572);
             this.txtMessageToBeSend.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtMessageToBeSend.Name = "txtMessageToBeSend";
@@ -77,11 +80,12 @@
             // 
             // btnSendMessage
             // 
-            this.btnSendMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSendMessage.Location = new System.Drawing.Point(656, 567);
+            this.btnSendMessage.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnSendMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.btnSendMessage.Location = new System.Drawing.Point(645, 570);
             this.btnSendMessage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSendMessage.Name = "btnSendMessage";
-            this.btnSendMessage.Size = new System.Drawing.Size(82, 34);
+            this.btnSendMessage.Size = new System.Drawing.Size(93, 30);
             this.btnSendMessage.TabIndex = 3;
             this.btnSendMessage.Text = "Send";
             this.btnSendMessage.UseVisualStyleBackColor = true;
@@ -89,6 +93,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.txtBufferSize);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.btnConnectWithServer);
@@ -96,7 +101,7 @@
             this.groupBox2.Controls.Add(this.txtServerName);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.groupBox2.Location = new System.Drawing.Point(755, 112);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox2.Name = "groupBox2";
@@ -133,6 +138,7 @@
             this.btnConnectWithServer.TabIndex = 3;
             this.btnConnectWithServer.Text = "Connect";
             this.btnConnectWithServer.UseVisualStyleBackColor = true;
+            this.btnConnectWithServer.Click += new System.EventHandler(this.btnConnectWithServer_Click_1);
             // 
             // txtChatServerIP
             // 
@@ -180,6 +186,7 @@
             this.Controls.Add(this.txtMessageToBeSend);
             this.Controls.Add(this.listChats);
             this.Controls.Add(this.btnListen);
+            this.KeyPreview = true;
             this.Location = new System.Drawing.Point(15, 15);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
@@ -187,7 +194,6 @@
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion
