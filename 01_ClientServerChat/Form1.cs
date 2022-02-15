@@ -143,7 +143,7 @@ namespace _01_ClientServerChat
         // Stap 9:
         private void btnSendMessage_Click(object sender, EventArgs e)
         {
-            string message = txtMessageToBeSend.Text;
+            string message = "[" + txtServerName.Text+ "]: " + txtMessageToBeSend.Text;
 
             byte[] buffer = Encoding.ASCII.GetBytes(message);
             try
