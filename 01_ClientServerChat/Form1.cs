@@ -45,6 +45,7 @@ namespace _01_ClientServerChat
         
         private void ReceiveData()
         {
+            
             txtServerName.Enabled = false;
             txtBufferSize.Enabled = false;
             txtChatServerIP.Enabled = false;
@@ -90,10 +91,17 @@ namespace _01_ClientServerChat
             txtBufferSize.Enabled = true;
             txtServerName.Enabled = true;
             txtChatServerIP.Enabled = true;
+            btnConnectWithServer.Enabled = true;
         }
         
         private void btnConnectWithServer_Click_1(object sender, EventArgs e)
         {
+            if (txtServerName.Text == "")
+            {
+                AddMessage("Foutmelding: Je moet een gebruikersnaam invullen.");
+                return;
+            }
+            btnConnectWithServer.Enabled = false;
             AddMessage("Connecting...");
             try
             {
@@ -105,11 +113,13 @@ namespace _01_ClientServerChat
             {
                 AddMessage("Foutmelding: We konden op: " + txtChatServerIP.Text + ". Geen server vinden.");
                 Console.WriteLine("Exception: ", exception);
+                btnConnectWithServer.Enabled = true;
             }
             catch (Exception exception)
             {
                 AddMessage("Foutmelding: Er is iets fout gegaan: " + exception);
                 Console.WriteLine("Exception: ", exception);
+                btnConnectWithServer.Enabled = true;
             }
         }
         
