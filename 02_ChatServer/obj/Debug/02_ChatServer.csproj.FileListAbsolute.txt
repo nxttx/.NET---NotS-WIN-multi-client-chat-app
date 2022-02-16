@@ -29,3 +29,14 @@ C:\Users\Rober\Documents\1.0 ICA\Leerjaar 3\S2\WIN-Web_Infrastructures\Beroepspr
 C:\Users\Rober\Documents\1.0 ICA\Leerjaar 3\S2\WIN-Web_Infrastructures\Beroepsproduct 1\NOTS_Uitwerking_opdracht_1\02_ChatServer\obj\Debug\02_ChatServer.csproj.CoreCompileInputs.cache
 C:\Users\Rober\Documents\1.0 ICA\Leerjaar 3\S2\WIN-Web_Infrastructures\Beroepsproduct 1\NOTS_Uitwerking_opdracht_1\02_ChatServer\obj\Debug\02_ChatServer.exe
 C:\Users\Rober\Documents\1.0 ICA\Leerjaar 3\S2\WIN-Web_Infrastructures\Beroepsproduct 1\NOTS_Uitwerking_opdracht_1\02_ChatServer\obj\Debug\02_ChatServer.pdb
+C:\Users\Rober\Documents\1.0 ICA\Leerjaar 3\S2\WIN-Web_Infrastructures\Beroepsproduct 1\NOTS_Uitwerking_opdracht_1\.NET--NotS-WIN-multi-client-chat-app\02_ChatServer\bin\Debug\02_ChatServer.exe.config
+C:\Users\Rober\Documents\1.0 ICA\Leerjaar 3\S2\WIN-Web_Infrastructures\Beroepsproduct 1\NOTS_Uitwerking_opdracht_1\.NET--NotS-WIN-multi-client-chat-app\02_ChatServer\bin\Debug\02_ChatServer.exe
+C:\Users\Rober\Documents\1.0 ICA\Leerjaar 3\S2\WIN-Web_Infrastructures\Beroepsproduct 1\NOTS_Uitwerking_opdracht_1\.NET--NotS-WIN-multi-client-chat-app\02_ChatServer\bin\Debug\02_ChatServer.pdb
+C:\Users\Rober\Documents\1.0 ICA\Leerjaar 3\S2\WIN-Web_Infrastructures\Beroepsproduct 1\NOTS_Uitwerking_opdracht_1\.NET--NotS-WIN-multi-client-chat-app\02_ChatServer\obj\Debug\02_ChatServer.csproj.AssemblyReference.cache
+C:\Users\Rober\Documents\1.0 ICA\Leerjaar 3\S2\WIN-Web_Infrastructures\Beroepsproduct 1\NOTS_Uitwerking_opdracht_1\.NET--NotS-WIN-multi-client-chat-app\02_ChatServer\obj\Debug\02_ChatServer.csproj.SuggestedBindingRedirects.cache
+C:\Users\Rober\Documents\1.0 ICA\Leerjaar 3\S2\WIN-Web_Infrastructures\Beroepsproduct 1\NOTS_Uitwerking_opdracht_1\.NET--NotS-WIN-multi-client-chat-app\02_ChatServer\obj\Debug\_02_ChatServer.Form1.resources
+C:\Users\Rober\Documents\1.0 ICA\Leerjaar 3\S2\WIN-Web_Infrastructures\Beroepsproduct 1\NOTS_Uitwerking_opdracht_1\.NET--NotS-WIN-multi-client-chat-app\02_ChatServer\obj\Debug\_02_ChatServer.Properties.Resources.resources
+C:\Users\Rober\Documents\1.0 ICA\Leerjaar 3\S2\WIN-Web_Infrastructures\Beroepsproduct 1\NOTS_Uitwerking_opdracht_1\.NET--NotS-WIN-multi-client-chat-app\02_ChatServer\obj\Debug\02_ChatServer.csproj.GenerateResource.cache
+C:\Users\Rober\Documents\1.0 ICA\Leerjaar 3\S2\WIN-Web_Infrastructures\Beroepsproduct 1\NOTS_Uitwerking_opdracht_1\.NET--NotS-WIN-multi-client-chat-app\02_ChatServer\obj\Debug\02_ChatServer.csproj.CoreCompileInputs.cache
+C:\Users\Rober\Documents\1.0 ICA\Leerjaar 3\S2\WIN-Web_Infrastructures\Beroepsproduct 1\NOTS_Uitwerking_opdracht_1\.NET--NotS-WIN-multi-client-chat-app\02_ChatServer\obj\Debug\02_ChatServer.exe
+C:\Users\Rober\Documents\1.0 ICA\Leerjaar 3\S2\WIN-Web_Infrastructures\Beroepsproduct 1\NOTS_Uitwerking_opdracht_1\.NET--NotS-WIN-multi-client-chat-app\02_ChatServer\obj\Debug\02_ChatServer.pdb

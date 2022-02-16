@@ -75,6 +75,7 @@ namespace _01_ClientServerChat
         // Stap 7:
         private void ReceiveData()
         {
+            txtServerName.Enabled = false;
             txtBufferSize.Enabled = false;
             int bufferSize;
             int ignoreMe;
@@ -100,7 +101,7 @@ namespace _01_ClientServerChat
                 int readBytes = networkStream.Read(buffer, 0, bufferSize);
                 message = Encoding.ASCII.GetString(buffer, 0, readBytes);
 
-                if (message == "bye")
+                if (message.Contains("SERVER SAYS BYE"))
                     break;
 
                 AddMessage(message);
@@ -116,6 +117,7 @@ namespace _01_ClientServerChat
 
             AddMessage("Connection closed");
             txtBufferSize.Enabled = true;
+            txtServerName.Enabled = true;
         }
 
         // Stap 8:
