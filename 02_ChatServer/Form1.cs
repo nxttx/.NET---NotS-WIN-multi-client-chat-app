@@ -20,13 +20,33 @@ namespace _02_ChatServer
         Thread thread;
         protected delegate void UpdateDisplayDelegate(string message);
 
+        protected delegate void ToggleFieldsDelegate();
+
+        protected delegate bool StopServerDeligate(bool stop);
+
+        private ToggleFieldsDelegate toggleFields;
+        private StopServerDeligate StopServer;
+        private bool ShouldServerStop = false; 
         public Form1()
         {
+            toggleFields = () =>
+            {
+                btnStop.Enabled = !btnStop.Enabled;
+                btnStart.Enabled = !btnStart.Enabled;
+                txtServerIP.Enabled = !txtServerIP.Enabled;
+                txtBufferSize.Enabled = !txtBufferSize.Enabled;
+            };
+
+            StopServer = (bool stop) =>
+            {
+                if (stop)
+                    ShouldServerStop = true;
+                return ShouldServerStop;
+            };
+
             InitializeComponent();
         }
-        
-        
-        // Stap 5:
+
         private void AddMessage(string message)
         {
             if (listMessages.InvokeRequired)
@@ -47,30 +67,35 @@ namespace _02_ChatServer
         private void btnStart_Click(object sender, EventArgs e)
         {
             toggleFields();
-            try
+            thread = new Thread(new ThreadStart(() =>
             {
-                TcpListener tcpListener = new TcpListener(IPAddress.Any, 9000);
-                tcpListener.Start();
-                
-                AddMessage("Listening for client.");
+                try
+                {
+                    TcpListener tcpListener = new TcpListener(IPAddress.Any, 9000);
+                    tcpListener.Start();
 
-                tcpClient = tcpListener.AcceptTcpClient();
-                thread = new Thread(new ThreadStart(ReceiveData));
-                thread.Start();
-            }
-            catch (SocketException exception)
-            {
-                AddMessage("Foutmelding: er is al een server actief op: " + IPAddress.Any );
-                Console.WriteLine("Exception: ", exception);
-            }
-            catch (Exception exception)
-            {
-                AddMessage("Foutmelding: Er is iets fout gegaan: " + exception);
-                Console.WriteLine("Exception: ", exception);
-            }
+                    AddMessage("Listening for client.");
+
+                    tcpClient = tcpListener.AcceptTcpClient();
+                    ReceiveData();
+                }
+                catch (SocketException exception)
+                {
+                    AddMessage("Foutmelding: er is al een server actief op: " + IPAddress.Any);
+                    Console.WriteLine("Exception: ", exception);
+                    toggleFields();
+                }
+                catch (Exception exception)
+                {
+                    AddMessage("Foutmelding: Er is iets fout gegaan: " + exception);
+                    Console.WriteLine("Exception: ", exception);
+                    toggleFields();
+                }
+            }));
+
+            thread.Start();
         }
-
-        // Stap 7:
+        
         private void ReceiveData()
         {
             int bufferSize;
@@ -98,31 +123,33 @@ namespace _02_ChatServer
                 message = Encoding.ASCII.GetString(buffer, 0, readBytes);
                 
                 AddMessage(message);
-            }
-        }
 
-        private void btnStop_Click(object sender, EventArgs e)
-        {
-            byte[] buffer = new byte[int.Parse(txtBufferSize.Text)];
+                if (StopServer(false))
+                    break;
+            }
             buffer = Encoding.ASCII.GetBytes("SERVER SAYS BYE");
             networkStream.Write(buffer, 0, buffer.Length);
 
             // cleanup:
             networkStream.Close();
             tcpClient.Close();
-            thread.Abort();
+            // thread.Abort();
 
             AddMessage("closed server");
             
-            toggleFields();
         }
 
-        private void toggleFields()
+        private void btnStop_Click(object sender, EventArgs e)
         {
-            btnStop.Enabled = !btnStop.Enabled;
-            btnStart.Enabled = !btnStart.Enabled;
-            txtServerIP.Enabled = !txtServerIP.Enabled;
-            txtBufferSize.Enabled = !txtBufferSize.Enabled;
+            StopServer(true);
+            thread = new Thread(new ThreadStart(() =>
+            {
+                byte[] buffer = new byte[int.Parse(txtBufferSize.Text)];
+                buffer = Encoding.ASCII.GetBytes("SERVER SAYS BYE");
+                networkStream.Write(buffer, 0, buffer.Length);
+            }));
+            thread.Start();
+            toggleFields();
         }
     }
 }

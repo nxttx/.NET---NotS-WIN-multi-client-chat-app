@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnListen = new System.Windows.Forms.Button();
             this.listChats = new System.Windows.Forms.ListBox();
             this.txtMessageToBeSend = new System.Windows.Forms.TextBox();
             this.btnSendMessage = new System.Windows.Forms.Button();
@@ -42,19 +41,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // btnListen
-            // 
-            this.btnListen.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnListen.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.btnListen.Location = new System.Drawing.Point(775, 30);
-            this.btnListen.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnListen.Name = "btnListen";
-            this.btnListen.Size = new System.Drawing.Size(245, 35);
-            this.btnListen.TabIndex = 0;
-            this.btnListen.Text = "Listen";
-            this.btnListen.UseVisualStyleBackColor = true;
-            this.btnListen.Click += new System.EventHandler(this.btnListen_Click);
             // 
             // listChats
             // 
@@ -102,7 +88,7 @@
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.groupBox2.Location = new System.Drawing.Point(755, 112);
+            this.groupBox2.Location = new System.Drawing.Point(754, 30);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -185,7 +171,6 @@
             this.Controls.Add(this.btnSendMessage);
             this.Controls.Add(this.txtMessageToBeSend);
             this.Controls.Add(this.listChats);
-            this.Controls.Add(this.btnListen);
             this.KeyPreview = true;
             this.Location = new System.Drawing.Point(15, 15);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -198,7 +183,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnListen;
         private System.Windows.Forms.ListBox listChats;
         private System.Windows.Forms.TextBox txtMessageToBeSend;
         private System.Windows.Forms.Button btnSendMessage;

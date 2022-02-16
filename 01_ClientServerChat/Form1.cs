@@ -15,20 +15,17 @@ namespace _01_ClientServerChat
 {
     public partial class Form1 : Form
     {
-        // Stap 3:
         TcpClient tcpClient;
         NetworkStream networkStream;
         Thread thread;
-
-        // Stap 4: 
+        
         protected delegate void UpdateDisplayDelegate(string message);
 
         public Form1()
         {
             InitializeComponent();
         }
-
-        // Stap 5:
+        
         private void AddMessage(string message)
         {
             if (listChats.InvokeRequired)
@@ -45,38 +42,12 @@ namespace _01_ClientServerChat
         {
             listChats.Items.Add(message);
         }
-
-        // Stap 6:
-        private void btnListen_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                TcpListener tcpListener = new TcpListener(IPAddress.Any, 9000);
-                tcpListener.Start();
-                
-                AddMessage("Listening for client.");
-
-                tcpClient = tcpListener.AcceptTcpClient();
-                thread = new Thread(new ThreadStart(ReceiveData));
-                thread.Start();
-            }
-            catch (SocketException exception)
-            {
-                AddMessage("Foutmelding: er is al een server actief op: " + IPAddress.Any );
-                Console.WriteLine("Exception: ", exception);
-            }
-            catch (Exception exception)
-            {
-                AddMessage("Foutmelding: Er is iets fout gegaan: " + exception);
-                Console.WriteLine("Exception: ", exception);
-            }
-        }
-
-        // Stap 7:
+        
         private void ReceiveData()
         {
             txtServerName.Enabled = false;
             txtBufferSize.Enabled = false;
+            txtChatServerIP.Enabled = false;
             int bufferSize;
             int ignoreMe;
             bool succes = int.TryParse(txtBufferSize.Text, out ignoreMe);
@@ -118,9 +89,9 @@ namespace _01_ClientServerChat
             AddMessage("Connection closed");
             txtBufferSize.Enabled = true;
             txtServerName.Enabled = true;
+            txtChatServerIP.Enabled = true;
         }
-
-        // Stap 8:
+        
         private void btnConnectWithServer_Click_1(object sender, EventArgs e)
         {
             AddMessage("Connecting...");
@@ -141,8 +112,7 @@ namespace _01_ClientServerChat
                 Console.WriteLine("Exception: ", exception);
             }
         }
-
-        // Stap 9:
+        
         private void btnSendMessage_Click(object sender, EventArgs e)
         {
             string message = "[" + txtServerName.Text+ "]: " + txtMessageToBeSend.Text;
