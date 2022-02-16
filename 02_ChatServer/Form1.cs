@@ -140,7 +140,6 @@ namespace _02_ChatServer
             // cleanup:
             networkStream.Close();
             tcpClient.Close();
-            // thread.Abort();
 
             AddMessage("closed server");
             
@@ -148,7 +147,9 @@ namespace _02_ChatServer
 
         private void btnStop_Click(object sender, EventArgs e)
         {
+            //delegate that tells the server that it should stop.
             StopServer(true);
+            // send message to inform that server shutsdown
             thread = new Thread(new ThreadStart(() =>
             {
                 byte[] buffer = new byte[int.Parse(txtBufferSize.Text)];
