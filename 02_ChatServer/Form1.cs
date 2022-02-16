@@ -41,6 +41,7 @@ namespace _02_ChatServer
             {
                 if (stop)
                     ShouldServerStop = true;
+                
                 return ShouldServerStop;
             };
 
@@ -66,29 +67,35 @@ namespace _02_ChatServer
 
         private void btnStart_Click(object sender, EventArgs e)
         {
+            ShouldServerStop = false;
             toggleFields();
             thread = new Thread(new ThreadStart(() =>
             {
+                TcpListener tcpListener = new TcpListener(IPAddress.Any, 9000);
                 try
                 {
-                    TcpListener tcpListener = new TcpListener(IPAddress.Any, 9000);
+                    
                     tcpListener.Start();
 
                     AddMessage("Listening for client.");
 
                     tcpClient = tcpListener.AcceptTcpClient();
                     ReceiveData();
+                    tcpListener.Stop();
                 }
                 catch (SocketException exception)
                 {
                     AddMessage("Foutmelding: er is al een server actief op: " + IPAddress.Any);
                     Console.WriteLine("Exception: ", exception);
+                    tcpListener.Stop();
                     toggleFields();
+                    
                 }
                 catch (Exception exception)
                 {
                     AddMessage("Foutmelding: Er is iets fout gegaan: " + exception);
                     Console.WriteLine("Exception: ", exception);
+                    tcpListener.Stop();
                     toggleFields();
                 }
             }));
