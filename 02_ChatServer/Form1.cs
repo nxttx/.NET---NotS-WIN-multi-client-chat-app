@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
@@ -121,18 +122,24 @@ namespace _02_ChatServer
             string message = "";
             byte[] buffer = new byte[bufferSize];
 
+            StringBuilder SB = new StringBuilder();
             networkStream = tcpClient.GetStream();
             AddMessage("Connected!");
 
-            while (true)
+            while (!StopServer(false) )
             {
-                int readBytes = networkStream.Read(buffer, 0, bufferSize);
-                message = Encoding.ASCII.GetString(buffer, 0, readBytes);
-                
-                AddMessage(message);
+                // int readBytes = networkStream.Read(buffer, 0, bufferSize);
+                // message = Encoding.ASCII.GetString(buffer, 0, readBytes);
+                string partMsg = "";
+                do {
+                    int readBytes = networkStream.Read(buffer, 0, bufferSize);
+                    partMsg = Encoding.ASCII.GetString(buffer, 0, readBytes);
+                    SB.Append(partMsg);
+                } while (partMsg.Length == bufferSize);
 
-                if (StopServer(false))
-                    break;
+                AddMessage(SB.ToString());
+                SB.Clear();
+
             }
             buffer = Encoding.ASCII.GetBytes("SERVER SAYS BYE");
             networkStream.Write(buffer, 0, buffer.Length);
