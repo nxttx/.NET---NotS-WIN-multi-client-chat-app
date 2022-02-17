@@ -16,8 +16,6 @@ namespace _02_ChatServer
 {
     public partial class Form1 : Form
     {
-        TcpClient tcpClient;
-        NetworkStream networkStream;
         Thread thread;
         protected delegate void UpdateDisplayDelegate(string message);
 
@@ -79,9 +77,13 @@ namespace _02_ChatServer
                     tcpListener.Start();
 
                     AddMessage("Listening for client.");
+                    while (!StopServer(false))
+                    {
+                        TcpClient tcpClient = tcpListener.AcceptTcpClient();
+                        ThreadPool.QueueUserWorkItem(ReceiveData, tcpClient);
+                    }
 
-                    tcpClient = tcpListener.AcceptTcpClient();
-                    ReceiveData();
+
                     tcpListener.Stop();
                 }
                 catch (SocketException exception)
@@ -104,8 +106,9 @@ namespace _02_ChatServer
             thread.Start();
         }
         
-        private void ReceiveData()
+        private void ReceiveData(Object obj)
         {
+            TcpClient tcpClient = (TcpClient) obj;
             int bufferSize;
             int ignoreMe;
             bool succes = int.TryParse(txtBufferSize.Text, out ignoreMe);
@@ -123,7 +126,7 @@ namespace _02_ChatServer
             byte[] buffer = new byte[bufferSize];
 
             StringBuilder SB = new StringBuilder();
-            networkStream = tcpClient.GetStream();
+            NetworkStream networkStream = tcpClient.GetStream();
             AddMessage("Connected!");
 
             while (!StopServer(false) )
