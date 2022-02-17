@@ -22,10 +22,14 @@ namespace _02_ChatServer
         protected delegate void ToggleFieldsDelegate();
 
         protected delegate bool StopServerDeligate(bool stop);
+        
+        protected delegate String GlobalMessageDelgate(String newMessage);
 
         private ToggleFieldsDelegate toggleFields;
         private StopServerDeligate StopServer;
-        private bool ShouldServerStop = false; 
+        private GlobalMessageDelgate GlobalMessage;
+        private bool shouldServerStop;
+        private String lastMessage = "";
         public Form1()
         {
             toggleFields = () =>
@@ -39,11 +43,20 @@ namespace _02_ChatServer
             StopServer = (bool stop) =>
             {
                 if (stop)
-                    ShouldServerStop = true;
+                    shouldServerStop = true;
                 
-                return ShouldServerStop;
+                return shouldServerStop;
             };
 
+            GlobalMessage = (String newMessage) =>
+            {
+                if (newMessage != "")
+                {
+                    lastMessage = newMessage;
+                }
+
+                return lastMessage;
+            };
             InitializeComponent();
         }
 
@@ -66,7 +79,7 @@ namespace _02_ChatServer
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            ShouldServerStop = false;
+            shouldServerStop = false;
             toggleFields();
             thread = new Thread(new ThreadStart(() =>
             {
@@ -128,12 +141,13 @@ namespace _02_ChatServer
             StringBuilder SB = new StringBuilder();
             NetworkStream networkStream = tcpClient.GetStream();
             AddMessage("Connected!");
+            String oldMessage = "";
 
             while (!StopServer(false) )
             {
                 string partMsg = "";
                 while (networkStream.DataAvailable){
-                    int readBytes = networkStream.Read(buffer, 0, bufferSize);
+                    int readBytes = networkStream.Read(buffer, 0, buffer.Length);
                     partMsg = Encoding.ASCII.GetString(buffer, 0, readBytes);
                     SB.Append(partMsg);
                     // clear buffer:
@@ -141,20 +155,35 @@ namespace _02_ChatServer
                     
                 }
 
+                if (oldMessage != GlobalMessage(""))
+                {
+                    oldMessage = GlobalMessage("");
+                    buffer = Encoding.ASCII.GetBytes(GlobalMessage(""));
+                    networkStream.Write(buffer, 0, buffer.Length);
+                }
+
                 if (SB.ToString() != "")
                 {
+                    if (SB.ToString() == "CLIENT SAYS GOODBYE")
+                    {
+                        break;
+                    }
+                    GlobalMessage(SB.ToString());
                     AddMessage(SB.ToString());
                     SB.Clear();
                 }
             }
-            buffer = Encoding.ASCII.GetBytes("SERVER SAYS BYE");
-            networkStream.Write(buffer, 0, buffer.Length);
 
+            if (StopServer(false))
+            {
+                buffer = Encoding.ASCII.GetBytes("SERVER SAYS BYE");
+                networkStream.Write(buffer, 0, buffer.Length);
+                AddMessage("closed server");
+            }
+            
             // cleanup:
             networkStream.Close();
             tcpClient.Close();
-
-            AddMessage("closed server");
             
         }
 

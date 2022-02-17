@@ -39,6 +39,7 @@
             this.txtServerName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.Disconnect = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -80,6 +81,7 @@
             // groupBox2
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.Disconnect);
             this.groupBox2.Controls.Add(this.txtBufferSize);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.btnConnectWithServer);
@@ -120,7 +122,7 @@
             this.btnConnectWithServer.Location = new System.Drawing.Point(33, 237);
             this.btnConnectWithServer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnConnectWithServer.Name = "btnConnectWithServer";
-            this.btnConnectWithServer.Size = new System.Drawing.Size(217, 30);
+            this.btnConnectWithServer.Size = new System.Drawing.Size(106, 30);
             this.btnConnectWithServer.TabIndex = 3;
             this.btnConnectWithServer.Text = "Connect";
             this.btnConnectWithServer.UseVisualStyleBackColor = true;
@@ -161,6 +163,15 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Username";
             // 
+            // Disconnect
+            // 
+            this.Disconnect.Location = new System.Drawing.Point(145, 237);
+            this.Disconnect.Name = "Disconnect";
+            this.Disconnect.Size = new System.Drawing.Size(105, 30);
+            this.Disconnect.TabIndex = 4;
+            this.Disconnect.Text = "Disconnect";
+            this.Disconnect.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -180,6 +191,8 @@
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.Button Disconnect;
 
         #endregion
 
