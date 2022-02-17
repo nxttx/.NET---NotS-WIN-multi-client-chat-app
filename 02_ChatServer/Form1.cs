@@ -131,15 +131,28 @@ namespace _02_ChatServer
                 // int readBytes = networkStream.Read(buffer, 0, bufferSize);
                 // message = Encoding.ASCII.GetString(buffer, 0, readBytes);
                 string partMsg = "";
-                do {
+                while (networkStream.DataAvailable){
+                    if (true)
+                    {
+                        
+                    }
                     int readBytes = networkStream.Read(buffer, 0, bufferSize);
                     partMsg = Encoding.ASCII.GetString(buffer, 0, readBytes);
                     SB.Append(partMsg);
-                } while (partMsg.Length == bufferSize);
+                    // clear buffer:
+                    buffer = new byte[bufferSize];
 
-                AddMessage(SB.ToString());
-                SB.Clear();
+                    if (true)
+                    {
+                        
+                    }
+                }
 
+                if (SB.ToString() != "")
+                {
+                    AddMessage(SB.ToString());
+                    SB.Clear();
+                }
             }
             buffer = Encoding.ASCII.GetBytes("SERVER SAYS BYE");
             networkStream.Write(buffer, 0, buffer.Length);

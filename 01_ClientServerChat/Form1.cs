@@ -80,7 +80,7 @@ namespace _01_ClientServerChat
             }
 
             // Verstuur een reactie naar de client (afsluitend bericht)
-            buffer = Encoding.ASCII.GetBytes("bye");
+            buffer = Encoding.ASCII.GetBytes("[" + txtServerName.Text+ "]: bye");
             networkStream.Write(buffer, 0, buffer.Length);
 
             // cleanup:
