@@ -128,24 +128,14 @@ namespace _02_ChatServer
 
             while (!StopServer(false) )
             {
-                // int readBytes = networkStream.Read(buffer, 0, bufferSize);
-                // message = Encoding.ASCII.GetString(buffer, 0, readBytes);
                 string partMsg = "";
                 while (networkStream.DataAvailable){
-                    if (true)
-                    {
-                        
-                    }
                     int readBytes = networkStream.Read(buffer, 0, bufferSize);
                     partMsg = Encoding.ASCII.GetString(buffer, 0, readBytes);
                     SB.Append(partMsg);
                     // clear buffer:
                     buffer = new byte[bufferSize];
-
-                    if (true)
-                    {
-                        
-                    }
+                    
                 }
 
                 if (SB.ToString() != "")
@@ -169,14 +159,6 @@ namespace _02_ChatServer
         {
             //delegate that tells the server that it should stop.
             StopServer(true);
-            // send message to inform that server shutsdown
-            thread = new Thread(new ThreadStart(() =>
-            {
-                byte[] buffer = new byte[int.Parse(txtBufferSize.Text)];
-                buffer = Encoding.ASCII.GetBytes("SERVER SAYS BYE");
-                networkStream.Write(buffer, 0, buffer.Length);
-            }));
-            thread.Start();
             toggleFields();
         }
     }
