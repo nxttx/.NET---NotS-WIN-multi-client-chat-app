@@ -32,6 +32,7 @@
             this.txtMessageToBeSend = new System.Windows.Forms.TextBox();
             this.btnSendMessage = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.Disconnect = new System.Windows.Forms.Button();
             this.txtBufferSize = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.btnConnectWithServer = new System.Windows.Forms.Button();
@@ -39,7 +40,6 @@
             this.txtServerName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.Disconnect = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -98,6 +98,16 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Server Settings";
+            // 
+            // Disconnect
+            // 
+            this.Disconnect.Location = new System.Drawing.Point(145, 237);
+            this.Disconnect.Name = "Disconnect";
+            this.Disconnect.Size = new System.Drawing.Size(105, 30);
+            this.Disconnect.TabIndex = 4;
+            this.Disconnect.Text = "Disconnect";
+            this.Disconnect.UseVisualStyleBackColor = true;
+            this.Disconnect.Click += new System.EventHandler(this.Disconnect_Click);
             // 
             // txtBufferSize
             // 
@@ -162,15 +172,6 @@
             this.label1.Size = new System.Drawing.Size(86, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Username";
-            // 
-            // Disconnect
-            // 
-            this.Disconnect.Location = new System.Drawing.Point(145, 237);
-            this.Disconnect.Name = "Disconnect";
-            this.Disconnect.Size = new System.Drawing.Size(105, 30);
-            this.Disconnect.TabIndex = 4;
-            this.Disconnect.Text = "Disconnect";
-            this.Disconnect.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 

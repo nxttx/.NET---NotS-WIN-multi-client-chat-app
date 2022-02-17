@@ -49,6 +49,7 @@ namespace _01_ClientServerChat
             txtServerName.Enabled = false;
             txtBufferSize.Enabled = false;
             txtChatServerIP.Enabled = false;
+            Disconnect.Enabled = true;
             int bufferSize;
             int ignoreMe;
             bool succes = int.TryParse(txtBufferSize.Text, out ignoreMe);
@@ -62,7 +63,7 @@ namespace _01_ClientServerChat
                 AddMessage("Foutmelding: Buffersize moet een interger nummer zijn. We hebben de buffer size aangepast naar 1024.");
                 txtBufferSize.Text = "1024";
             }
-            string message = "";
+            StringBuilder SB = new StringBuilder();
             byte[] buffer = new byte[bufferSize];
 
             networkStream = tcpClient.GetStream();
@@ -70,13 +71,25 @@ namespace _01_ClientServerChat
 
             while (true)
             {
-                int readBytes = networkStream.Read(buffer, 0, bufferSize);
-                message = Encoding.ASCII.GetString(buffer, 0, readBytes);
 
-                if (message.Contains("SERVER SAYS BYE"))
+                string partMsg = "";
+                while (networkStream.DataAvailable){
+                    int readBytes = networkStream.Read(buffer, 0, buffer.Length);
+                    partMsg = Encoding.ASCII.GetString(buffer, 0, readBytes);
+                    SB.Append(partMsg);
+                    // clear buffer:
+                    buffer = new byte[bufferSize];
+                    
+                }
+                
+                if (SB.ToString().Contains("SERVER SAYS BYE"))
                     break;
-
-                AddMessage(message);
+                
+                if (SB.ToString() != "")
+                {
+                    AddMessage(SB.ToString());
+                    SB.Clear();
+                }
             }
 
             // Verstuur een reactie naar de client (afsluitend bericht)
@@ -92,6 +105,7 @@ namespace _01_ClientServerChat
             txtServerName.Enabled = true;
             txtChatServerIP.Enabled = true;
             btnConnectWithServer.Enabled = true;
+            Disconnect.Enabled = false;
         }
         
         private void btnConnectWithServer_Click_1(object sender, EventArgs e)
@@ -132,7 +146,7 @@ namespace _01_ClientServerChat
             {
                 networkStream.Write(buffer, 0, buffer.Length);
 
-                AddMessage(message);
+                // AddMessage(message);
                 txtMessageToBeSend.Clear();
                 txtMessageToBeSend.Focus();
             }
@@ -147,6 +161,41 @@ namespace _01_ClientServerChat
                 Console.WriteLine("Exception: ", exception);
             }
 
+        }
+
+        private void Disconnect_Click(object sender, EventArgs e)
+        {
+            string message = "CLIENT SAYS GOODBYE";
+
+            byte[] buffer = Encoding.ASCII.GetBytes(message);
+            try
+            {
+                networkStream.Write(buffer, 0, buffer.Length);
+                
+                txtMessageToBeSend.Clear();
+                txtMessageToBeSend.Focus();
+                // cleanup:
+                networkStream.Close();
+                tcpClient.Close();
+                thread.Abort();
+
+                AddMessage("Connection closed");
+                txtBufferSize.Enabled = true;
+                txtServerName.Enabled = true;
+                txtChatServerIP.Enabled = true;
+                btnConnectWithServer.Enabled = true;
+                Disconnect.Enabled = false;
+            }
+            catch (NullReferenceException exception)
+            {
+                AddMessage("Foutmelding: Je moet wel verbonden zijn met een server om een bericht te verzenden.");
+                Console.WriteLine("Exception: ", exception);
+            }
+            catch (Exception exception)
+            {
+                AddMessage("Foutmelding: Er is iets fout gegaan: " + exception);
+                Console.WriteLine("Exception: ", exception);
+            }
         }
     }
 }

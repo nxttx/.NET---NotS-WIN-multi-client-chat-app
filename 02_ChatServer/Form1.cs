@@ -135,7 +135,6 @@ namespace _02_ChatServer
                 AddMessage("Foutmelding: Buffersize moet een interger nummer zijn. We hebben de buffer size aangepast naar 1024.");
                 txtBufferSize.Text = "1024";
             }
-            string message = "";
             byte[] buffer = new byte[bufferSize];
 
             StringBuilder SB = new StringBuilder();
