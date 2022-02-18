@@ -90,13 +90,17 @@ namespace _02_ChatServer
                     tcpListener.Start();
 
                     AddMessage("Listening for client.");
+                    // check this for errors: It is probably the reason the server doesnt close: 
+                    // it waits on an new client. 
                     while (!StopServer(false))
                     {
-                        TcpClient tcpClient = tcpListener.AcceptTcpClient();
-                        ThreadPool.QueueUserWorkItem(ReceiveData, tcpClient);
+                        if (tcpListener.Pending())
+                        {
+                            TcpClient tcpClient = tcpListener.AcceptTcpClient();
+                            ThreadPool.QueueUserWorkItem(ReceiveData, tcpClient);
+                        }
                     }
-
-
+                    
                     tcpListener.Stop();
                 }
                 catch (SocketException exception)
@@ -191,6 +195,7 @@ namespace _02_ChatServer
             //delegate that tells the server that it should stop.
             StopServer(true);
             toggleFields();
+            
         }
     }
 }

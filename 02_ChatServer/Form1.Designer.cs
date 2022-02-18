@@ -166,7 +166,6 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button btnStartStop;
         private System.Windows.Forms.TextBox txtServerIP;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox2;
