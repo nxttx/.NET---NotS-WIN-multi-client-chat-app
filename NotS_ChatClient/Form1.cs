@@ -25,6 +25,14 @@ namespace _01_ClientServerChat
 
         public Form1()
         {
+            FormClosing += (o, e) =>
+            {
+                if (e.CloseReason == CloseReason.UserClosing)
+                {
+                    Disconnect_Click(new object(), new EventArgs());
+                    Application.Exit();
+                }
+            };
             InitializeComponent();
             toggleFields = () =>
             {

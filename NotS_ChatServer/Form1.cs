@@ -57,6 +57,16 @@ namespace _02_ChatServer
 
                 return lastMessage;
             };
+            
+            FormClosing += (o, e) =>
+            {
+                if (e.CloseReason == CloseReason.UserClosing)
+                {
+                    btnStop_Click(new object(), new EventArgs());
+                    Application.Exit();
+                }
+            };
+            
             InitializeComponent();
         }
 
@@ -144,7 +154,7 @@ namespace _02_ChatServer
             StringBuilder SB = new StringBuilder();
             NetworkStream networkStream = tcpClient.GetStream();
             AddMessage("Connected!");
-            String oldMessage = "";
+            String oldMessage = GlobalMessage("");
 
             while (!StopServer(false) )
             {
